@@ -1,0 +1,126 @@
+
+.key-select{
+	float: left;
+	margin-top: -3px;
+}
+
+.capo-select{
+	float: left;
+	width: auto;
+}
+
+.key{
+	float: left;
+	margin: 0px 2px 0;
+	background-color: #005573;
+	width: auto;
+	padding: 5px;
+	color: #fff;
+	text-shadow: 1px 1px 1px #000;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.key:hover{
+	background-color: #007793;
+}
+
+.key.active{
+	background-color: #000;
+	color: #fff;
+	text-shadow: none;
+}
+
+iframe{
+	background-color: #fff;
+	border: none;
+	width: 100%;
+	margin: auto;
+	display: block;
+	height: 850px;
+	font-size: 14px;
+	font-family: courier new !important;
+}
+
+#main .block h3 .capo-num{
+	position: absolute;
+	right: 15px;
+	bottom: 15px;
+	font-size: 20px;
+}
+
+#dialog-overlay{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1000px;
+	height: 600px;
+	background-color: rgba(100,100,100,.7);
+	z-index: 5;
+	display: none;
+}
+
+#box .table span{
+	font-size: 16px;
+}
+
+.dialog{
+	position: relative;
+	top: 25px;
+}
+
+.clear{
+	clear: both;
+}
+
+.left{
+	float: left !important;
+}
+
+.right{
+	float: right !important;
+}
+
+.block{
+	page-break-after: always;
+}
+
+label{
+	margin-top: 3px;
+}
+
+h3 label{
+	font-size: 16px;
+	margin-right: 10px;
+}
+
+#add-song-block{
+	height: 30px;
+}
+
+h3 .key-select{
+	margin-left: 10px;
+	margin-top: 0px;
+}
+
+#add-song-wrapper{
+	width: 1020px;
+	margin: auto;
+}
+
+#add-song{
+	width: 990px;
+	height: 700px;
+	margin: 10px;
+	padding: 10px;
+	border-style: solid;
+	border-color: #000;
+	border-width: 1px;
+	display: block;
+	resize: none;
+}
+
+h3 .button{
+	font-size: 12px;
+	margin-left: 10px;
+}

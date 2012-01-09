@@ -1,0 +1,21 @@
+body{
+	background-color: #fff;
+}
+
+.block{
+	margin: -10px;
+}
+
+iframe{
+	border-style: solid;
+	border-color: #000;
+	border-width: 0 1px 1px 1px;
+}
+
+#container{
+	max-width: 1200px;
+}
+
+@page {
+	margin: 1in;
+}
