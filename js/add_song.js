@@ -17,12 +17,12 @@ $(function() {
 			for(var i in string_array) {
 				if(open_tag) {
 					if(string_array[i] == ' ' || string_array[i] == ')') {
-						string_array[i] = '</b>' + string_array[i];
+						string_array[i] = '</strong>' + string_array[i];
 						open_tag = 0;
 					}
 				} else {
 					if(string_array[i] != " " && string_array[i] != '(') {
-						string_array[i] = '<b>' + string_array[i];
+						string_array[i] = '<strong>' + string_array[i];
 						open_tag = 1;
 					}
 				}
@@ -30,7 +30,7 @@ $(function() {
 			
 			if(open_tag) {
 				var i = string_array.length - 1;
-				string_array[i] = string_array[i] + '</b>';
+				string_array[i] = string_array[i] + '</strong>';
 			}
 			
 			var new_array = [];

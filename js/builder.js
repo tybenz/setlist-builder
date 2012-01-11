@@ -126,7 +126,7 @@ $(function() {
 
 			var diff = numbers[new_key] - numbers[keys[file]];
 
-			$('[data-id="' + file + '"] iframe').contents().find('b').each(function() {
+			$('[data-id="' + file + '"] iframe').contents().find('strong').each(function() {
 				$(this).text(transpose(diff, $(this).text()));
 			});
 
@@ -179,7 +179,7 @@ $(function() {
 			var capo = $(this).find('.capo-num').text().split(' ');
 			capo = capo[1] ? parseInt(sign + capo[1]) : 0;
 				
-			$(this).find('iframe').contents().find('b').each(function() {
+			$(this).find('iframe').contents().find('strong').each(function() {
 				$(this).text(transpose(capo, $(this).text()));
 			});
 		});
