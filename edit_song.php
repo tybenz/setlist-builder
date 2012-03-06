@@ -27,7 +27,7 @@
 
 				<ul class="wat-cf">
 					<li class="first"><a href="index.php">Build</a></li>
-					<li class="active"><a href="add_song.php">Add Song</a></li>
+					<li><a href="add_song.php">Add Song</a></li>
 					<li><a href="manage_songs.php">Manage Songs</a></li>
 				</ul>
 			</div>
@@ -41,7 +41,7 @@
 			<div id="dialog-overlay">
 				<div id="box" class="dialog">
 					<div class="block" id="keys">
-						<h2><span>Select Key</span><button id="close-dialog" class="close-dialog right"><img alt="Close" src="images/icons/cross.png" /></button></h2>
+						<h2><span>Select Key</span><button id="close-dialog" class="right"><img style="position: relative; top: 2px" alt="Close" src="images/icons/cross.png" /></button></h2>
 						<div class="content">
 							<br />
 							<div class="key-select right" id="current-key">
@@ -80,7 +80,7 @@
 							<br />
 							<br />
 							<br />
-							<button id="submit-new-song" class="right">Add Song</button>
+							<button id="submit-new-song" class="right">Edit Song</button>
 							<br />
 							<br />
 							<br />
@@ -96,7 +96,7 @@
 
 				<div class="block">
 
-					<h3>Add Song</h3>
+					<h3>Edit Song</h3>
 					<div class="content" style="padding-top: 10px">
 						<div id="example-song">
 							
@@ -149,10 +149,13 @@ Oh my God, this love, how can it be?
 				</div>
 
 				<div class="block">
-
+					<?php
+						$song_name = explode('.', $_GET['file']);
+						$song_name = implode(' ', explode('_', $song_name[0]));
+					?>
 					<h3 style="padding: 25px 10px 0px">
-						<label for="song-title" class="left">Song Title</label><input class="left" id="song-title" value="" />
-						<button class="button" id="select-key" class="left">Add Song</button><br class="clear" />
+						<label for="song-title" class="left">Song Title</label><input class="left" id="song-title" value="<?php echo ucwords($song_name) ?>" />
+						<button class="button" id="select-key" class="left">Edit Song</button><br class="clear" />
 					</h3>
 					<div class="content" style="padding: 0;">
 						<div id="add-song-wrapper">
@@ -165,10 +168,17 @@ Oh my God, this love, how can it be?
 					</div>
 				</div>
 				
-
+				<iframe id="song" src="songs/<?php echo $_GET['file']; ?>" style="display: none"></iframe>
 			</div>
 		</div>
 	</div>
 
 </body>
+<script type="text/javascript">
+	$(function() {
+		$('#song').load(function() {
+			$('#add-song').val($('#song').contents().find('pre').text());
+		});
+	});
+  </script>
 </html>

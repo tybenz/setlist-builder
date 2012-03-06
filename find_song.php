@@ -14,7 +14,8 @@
 	
 	if($count > 0) {
 		if($count == 1) {
-			echo 'found';
+			$new_title = explode(".", $matches[0]);
+			echo 'found-' . $new_title[0];
 		} else {
 			foreach($matches as $m) {
 				echo $m . ',';

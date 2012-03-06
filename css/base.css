@@ -30,9 +30,8 @@ body {
 }
 
 #container {
-  min-width: 1020px;
   max-width: 1100px;
-  margin: auto;
+  margin: 100px auto 0;
 }
 
 #header, #wrapper {
@@ -40,8 +39,18 @@ body {
 }
 
 #header {
-  position: relative;
-  padding-top: 1px;  
+  width: 100%;
+  position: fixed;
+  top: 0;
+  padding-top: 1px; 
+  z-index: 100; 
+}
+
+#header-inner {
+	max-width: 1100px;
+	min-width: 1020px;
+	position: relative;
+	margin: auto;
 }
 
 #header h1 {
@@ -116,14 +125,17 @@ body {
 
 
 #main .block h3{
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-	background: none repeat scroll 0 0 #007BA7;
-	border-bottom: 7px solid #005573;
-	color: #F7F7F8;
-	font-size: 32px;
+	background: #e0e0e0;
+	border-bottom-width: 0px;
+	-moz-border-radius-topleft: 6px;
+	-webkit-border-top-left-radius: 6px;
+	border-top-left-radius: 6px;
+	-moz-border-radius-topright: 6px;
+	-webkit-border-top-right-radius: 6px;
+	border-top-right-radius: 6px;
 	margin: 0;
-	padding: 10px 15px;
+	padding: 15px 20px 10px;
+	font-size: 32px;
 	position: relative;
 }
 
@@ -208,7 +220,6 @@ body {
 
 /* tables */
 .table {
-  width: 100%;
   border-collapse: collapse;  
   margin-bottom: 15px;
 }
@@ -221,10 +232,12 @@ body {
 
 .table th.first {
   width: 30px;
+  border-top-left-radius: 4px;
 }
 
 .table th.last {
   width: 200px;  
+  border-top-right-radius: 4px;
 }
 
 .table .checkbox {
@@ -346,8 +359,8 @@ ul.list li .item .avatar {
 /* box */
 
 #box {
-  width: 500px;
-  margin: 50px auto;
+  width: 490px;
+  margin: 100px auto;
 }
 
 #box .block {

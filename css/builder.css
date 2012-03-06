@@ -10,19 +10,21 @@
 }
 
 .key{
+	text-align: center;
 	float: left;
 	margin: 0px 2px 0;
-	background-color: #005573;
-	width: auto;
+	background-color: #1CAB28;
+	width: 20px;
 	padding: 5px;
 	color: #fff;
 	text-shadow: 1px 1px 1px #000;
 	cursor: pointer;
 	font-size: 14px;
+	border-radius: 3px;
 }
 
 .key:hover{
-	background-color: #007793;
+	background-color: #118B00;
 }
 
 .key.active{
@@ -44,13 +46,13 @@ iframe{
 
 #main .block h3 .capo-num{
 	position: absolute;
-	right: 15px;
+	right: 20px;
 	bottom: 15px;
 	font-size: 20px;
 }
 
 #dialog-overlay{
-	position: absolute;
+	position: fixed;
 	left: 0;
 	top: 0;
 	width: 1000px;
@@ -60,7 +62,7 @@ iframe{
 	display: none;
 }
 
-#box .table span{
+.table span{
 	font-size: 16px;
 }
 
@@ -86,7 +88,7 @@ iframe{
 }
 
 label{
-	margin-top: 3px;
+	margin: 3px 10px 0px;
 }
 
 h3 label{
@@ -103,24 +105,114 @@ h3 .key-select{
 	margin-top: 0px;
 }
 
+h4{
+	padding-left: 20px;
+}
+
+h5{
+	padding-left: 30px;
+	margin-bottom: 10px;
+}
+
 #add-song-wrapper{
-	width: 1020px;
-	margin: auto;
+	height: 1610px;
+	overflow: hidden;
+	border-radius: 0 0 0 6px;
+}
+
+#add-song-margin{
+	width: 16px;
+	height: 1600px;
+	float: left;
+	background-color: #c4c4c4;
+	padding-top: 10px;
 }
 
 #add-song{
-	width: 990px;
-	height: 700px;
-	margin: 10px;
-	padding: 10px;
-	border-style: solid;
-	border-color: #000;
-	border-width: 1px;
-	display: block;
+	float: left;
+	width: 999px;
+	height: 1600px;
+	margin: 10px 0 0 5px;
+	border: none;
 	resize: none;
+	font-size: 16px;
+	line-height: 16px;
+}
+
+.line-marker{
+	height: 16px;
+	cursor: pointer;
+}
+
+.line-marker:hover{
+	background: #0d0;
+}
+
+.line-marker:active{
+	background: #080;
+}
+
+.line-marker.selected{
+	background: #0b0;
 }
 
 h3 .button{
 	font-size: 12px;
 	margin-left: 10px;
+}
+
+#add-to-list{
+	margin-left: 3px;
+}
+
+#submit-new-song{
+	font-size: 14px;
+}
+
+ol{
+	padding: 0 37px;
+}
+
+#example-song{
+	width: 270px;
+	font-size: 10px;
+	float: right;
+	margin: 10px 30px 0 0;
+}
+
+#example-song h4{
+	padding: 0;
+}
+
+#example-song .block{
+	padding: 10px;
+}
+
+#instructions{
+	width: 640px;
+	font-size: 20px;
+	padding-left: 50px;
+}
+
+#select-key{
+	margin: -3px 0 0 10px;
+	font-size: 12px;
+}
+
+[for=song-title] {
+	margin-top: 0px;
+}
+
+#dialog-overlay .block{
+	display: none;
+}
+
+.close-dialog img{
+	position: relative;
+	top: 2px
+}
+
+#browse-songs .content{
+	height: 500px;
+	overflow-y: auto;
 }

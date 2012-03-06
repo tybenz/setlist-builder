@@ -49,8 +49,12 @@ $(function() {
 			url: 'find_song.php',
 			data: 'title=' + string,
 			success: function(response) {
-				if(response == 'found') {
-					appendFrame(string);
+				//if response starts with found we found an exact match
+				//if response is not found then no song was found
+				//if response is anything else, it will be a list of multiple songs
+				//and we prompt the user to choose between them
+				if(response.indexOf('found') == 0) {
+					appendFrame(response.split('-')[1]);
 				} else if(response == 'not found'){
 					notFound();
 				} else {
@@ -186,10 +190,8 @@ $(function() {
 	}
 	
 	function notFound() {
-		$('#box h2 span').html('Song Not Found');
-		$('#box h3').remove();
-		$('#box tbody').before('<h3>We could not locate the song. Please double check your spelling and try again.</h3>');
 		var win = $(window);
+		$('#not-found').show();
 		$('#dialog-overlay').show().height(win.height()).width(win.width());
 	}
 	
@@ -229,30 +231,56 @@ $(function() {
 		return dub.join('/');
 	}
 	
+	$('.delete-song').click(function(e) {
+		e.preventDefault();
+		var win = $(window);
+		var $this = $(this);
+		var dialog = $('#delete-dialog');
+		dialog.show();
+		dialog.find('.content a').attr('href', 'delete_song.php?file=' + $this.attr('data-file'));
+		dialog.find('.content h3').text('Are you sure you want to delete "'+ $this.parents('td').siblings('td').text() + '"?');
+		$('#dialog-overlay').show().height(win.height()).width(win.width());
+	});
+	
 	function whichSong(string) {
 		var list = string.split(',');
-		var box = $('#box .content tbody');
+		var box = $('#box #which-song tbody');
+		
+		box.find('tr').remove();
 		
 		for(var i = 0; i < list.length - 1; i++) {
 			var title = list[i].split('.')[0].split('_').join(' ').capitalize();
-			box.append('<tr><td><span>' + title + '</span></td><td width="45"><button data-file="' + list[i] + '" class="button" type="submit"> \
+			box.append('<tr><td width="430"><span>' + title + '</span></td><td width="45"><button data-file="' + list[i] + '" class="button" type="submit"> \
 				<img style="position: relative; left: 3px" alt="Save" src="images/icons/tick.png"></button></td></tr>');
 		}
 		
 		box.find('button').click(function() {
 			appendFrame($(this).attr('data-file').split('.')[0]);
-			$('#dialog-overlay').hide().find('tr').remove();
+			$('#which-song').hide();
+			$('#dialog-overlay').hide();
 		});
-		
-		$('#dialog-overlay h2 span').text('Which Song?');
 		
 		var win = $(window);
 		
+		$('#which-song').show();
 		$('#dialog-overlay').show().height(win.height()).width(win.width());
 	}
 	
-	$('#close-dialog').click(function() {
-		$('#dialog-overlay').hide().find('tr').remove();
+	$('#browse-songs .button').click(function() {
+		$('#browse-songs').hide();
+		$('#dialog-overlay').hide();
+		appendFrame($(this).attr('data-file').split('.')[0]);
+	});	
+	
+	$('#open-browser').click(function() {
+		var win = $(window);
+		$('#browse-songs').show();
+		$('#dialog-overlay').show().height(win.height()).width(win.width());	
+	});
+	
+	$('.close-dialog').click(function() {
+		$(this).parents('.block').hide();
+		$('#dialog-overlay').hide();
 	});
 	
 	String.prototype.capitalize = function(){

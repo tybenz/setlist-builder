@@ -5,6 +5,9 @@
 	<html>
 	<head>
 		<title>' . stripslashes($_POST['title']) . '</title>
+		<meta http-Equiv="Cache-Control" Content="no-cache" />
+		<meta http-Equiv="Pragma" Content="no-cache" />
+		<meta http-Equiv="Expires" Content="0" />
 
 		<link rel="stylesheet" href="styles.css" type="text/css" />
 	</head>
