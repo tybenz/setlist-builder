@@ -8,8 +8,7 @@
   <link rel="stylesheet" id="current-theme" href="css/styles.css" type="text/css" media="all" />
   <link rel="stylesheet" id="current-theme" href="css/builder.css" type="text/css" media="all" />
   <link rel="stylesheet" id="current-theme" href="css/print.css" type="text/css" media="print" />
-  <script type="text/javascript" charset="utf-8" src="http://code.jquery.com/jquery.js"></script>
-  <script type="text/javascript" src="js/add_song.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
 </head>
 <body>
 	
@@ -96,74 +95,25 @@
 
 				<div class="block">
 
-					<h3>Add Song</h3>
-					<div class="content" style="padding-top: 10px">
-						<div id="example-song">
-							
-							
-							<div class="block" style="padding: 0">
-								<h3 style="font-size: 16px">Example</h3>
-							<div class="content" style="padding: 10px">
-								<pre>
-<strong>  G           C               D</strong>
-Every move I make, I make in You
-<strong>    C		</strong>
-You make me move, Jesus
-<strong>   G		C		   D    C</strong>
-Every breath I take, I breathe in You
 
-
-<strong>G    C    D    C</strong>    [repeat]
-
-
-<strong>  G	 C/A	 D/B	  C</strong>
-Waves of mercy, waves of grace
-<strong>  G   C/A    D/B      C        G</strong>
-Everywhere I look, I see Your face
-<strong>      C/A      D/B     C</strong>
-Your love has captured me
-<strong> G    C/A	D/B	   C     G</strong>
-Oh my God, this love, how can it be?
-								</pre>
-							</div>
-						</div>
-						</div>
-						
-						<h2 style="padding-left: 10px">Instructions:</h2>
-						
-						<ol id="instructions">
-							<li>Enter song title</li>
-							<li>Paste or type in lyrics and chords</li>
-							<li>Make sure any non-chord pieces of text are not on the same line as any of the chords</li>
-							<li>If you need any words on the same line as chords, make sure to wrap them in square brackets (see example)</li>
-							<li>AFTER you are finished editing the text, mark each line containing chords in the margin</li>
-							<li>Select the key that the song is in (Current Key)</li>
-							<li>Select the key you prefer the song to be in (Default Key)</li>
-						</ol>
-						
-						<br class="clear" />
-						
-						
-
-					</div>
-				</div>
-
-				<div class="block">
-
-					<h3 style="padding: 25px 10px 0px">
-						<label for="song-title" class="left">Song Title</label><input class="left" id="song-title" value="" />
-						<button class="button" id="select-key" class="left">Add Song</button><br class="clear" />
-					</h3>
-					<div class="content" style="padding: 0;">
-						<div id="add-song-wrapper">
-							<div id="add-song-margin">
-							</div>
-							<textarea id="add-song"></textarea>
-							<br class="clear" />
-						</div>
-
-					</div>
-				</div>
+          <form action="write_song.php" method="post">
+            <h3>
+              <span style="float: left">Add Song</span>
+              <div class="right" id="add-song-form">
+                <label for="song-title">Song Title</label><input id="song-title" name="title" value="" />
+                <input class="button right" id="select-key" type="submit" value="Add Song">
+              </div>
+              <br class="clear" />
+            </h3>
+            <div class="content" style="padding: 0;">
+              <div id="add-song-wrapper">
+                <textarea id="add-song" name="chords"></textarea>
+                <br class="clear" />
+              </div>
+  
+            </div>
+          </form>
+        </div>
 				
 
 			</div>

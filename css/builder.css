@@ -194,8 +194,12 @@ ol{
 	padding-left: 50px;
 }
 
+#add-song-form {
+  margin-top: -5px;
+}
+
 #select-key{
-	margin: -3px 0 0 10px;
+	margin: 10px 0 0 10px;
 	font-size: 12px;
 }
 
