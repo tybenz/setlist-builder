@@ -9,7 +9,7 @@
   <link rel="stylesheet" id="current-theme" href="css/styles.css" type="text/css" media="all" />
   <link rel="stylesheet" id="current-theme" href="css/builder.css" type="text/css" media="all" />
   <link rel="stylesheet" id="current-theme" href="css/print.css" type="text/css" media="print" />
-  <script type="text/javascript" charset="utf-8" src="http://code.jquery.com/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/builder.js"></script>
 </head>
 <body>
