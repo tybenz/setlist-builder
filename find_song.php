@@ -1,5 +1,6 @@
 <?php
 	$title = $_POST['title'];
+  $title = implode('_', explode(' ', $title));
 
 	$dir = scandir('songs');
 	
@@ -12,10 +13,9 @@
 		}
 	}
 	
-	if($count > 0) {
+	if($count) {
 		if($count == 1) {
-			$new_title = explode(".", $matches[0]);
-			echo 'found-' . $new_title[0];
+      echo file_get_contents( 'songs/' . $matches[0] );
 		} else {
 			foreach($matches as $m) {
 				echo $m . ',';

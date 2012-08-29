@@ -9,14 +9,17 @@
   <link rel="stylesheet" id="current-theme" href="css/styles.css" type="text/css" media="all" />
   <link rel="stylesheet" id="current-theme" href="css/builder.css" type="text/css" media="all" />
   <link rel="stylesheet" id="current-theme" href="css/print.css" type="text/css" media="print" />
-  <script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="http://code.jquery.com/jquery.js"></script>
+  <script type="text/javascript" src="js/underscore.js"></script>
+  <script type="text/javascript" src="js/ajaxAppend.js"></script>
+  <script type="text/javascript" src="js/keySelector.js"></script>
   <script type="text/javascript" src="js/builder.js"></script>
 </head>
 <body>
 		<div id="header">
 			<div id="header-inner">
 			<h1>
-				<a style="font-size: 42px" href="index.html">
+				<a class="brand" style="font-size: 42px" href="index.html">
 					Setlist Builder
 				</a>
 				<img style="width: 120px; position: absolute; right: 40px; top: 5px" src="images/lp_logo.png" alt=" " />
@@ -72,23 +75,13 @@
 												$string = explode('.', $s);
 												$string = $string[0];
 												echo '<tr><td width="430"><span>' . ucwords(implode(' ', explode('_', $string))) . '</span></td><td width="45">
-													<button class="button" type="submit" data-file="' . $s . '.html">
-														<img src="images/icons/tick.png" alt="Save" style="position: relative; left: 3px;">
+													<button class="browse-songs button" type="submit" data-file="' . $s . '">
+														<img src="images/icons/tick.png" alt="Save">
 													</button></td></tr>';
 											}
 										}
 									
 									?>
-									<!--
-									<tr>
-										<td width="430"><span>Running</span></td>
-										<td width="45">
-											<button class="button" type="submit" data-file="running.html">
-												<img src="images/icons/tick.png" alt="Save" style="position: relative; left: 3px;">
-											</button>
-										</td>
-									</tr>
-									-->
 								</tbody>
 							</table>
 						</div>
@@ -121,14 +114,10 @@
 								</tr>
 								<tr>
 									<td>1.</td>
-									<td><input style="width: 252px" value="" id="song-to-add" /><button id="add-to-list">Add</button></td>
-									<td>
-									<div class="key-select">
-									<div class="key">A</div><div class="key">Bb</div><div class="key">B</div><div class="key">C</div><div class="key">C#</div><div class="key">D</div><div class="key">Eb</div><div class="key">E</div><div class="key">F</div><div class="key">F#</div><div class="key">G</div><div class="key">G#</div>
-									</div>
-									</td>
+									<td><form id="add-song-form" action="find_song.php" method="post"><input name="title" style="width: 252px" value=""><input type="submit" value="Add"></form></td>
+									<td>---</td>
 									<td>----</td>
-									<td class="last"><a href="#">edit</a> | <a href="#">remove</a></td>
+									<td class="last"><a href="#" class="edit">edit</a> | <a href="#" class="remove">remove</a></td>
 								</tr>
 
 							</table>
@@ -137,15 +126,6 @@
 					</div>
 				</div>
 				
-				<!--
-				<div class="block">	
-					<h3>Our God</h3>
-					<div class="content">
-						<iframe src="songs/our_god.html"></iframe>
-					</div>
-				</div>
-				-->
-
 			</div>
 		</div>
 	</div>

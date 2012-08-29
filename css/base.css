@@ -111,6 +111,7 @@ body {
 }
 
 #wrapper {
+  min-width: 990px;
   padding-top: 20px;
 }
 
@@ -382,7 +383,6 @@ ul.list li .item .avatar {
 a.button:link, a.button:visited, a.button:hover, a.button:active, button.button {
   color: #222;
   display:block;
-  float:left;
   margin:0 7px 0 0;
   background-color: #eee;
   border:1px solid #bfbfbf;
